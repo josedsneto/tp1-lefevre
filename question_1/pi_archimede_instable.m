@@ -1,4 +1,4 @@
-N = 40; # Number of iterations
+N = 100; # Number of iterations
 
 Y = zeros(N,1); # yk
 Y(1) = 2; # First term of series
@@ -12,17 +12,20 @@ for i = 1:N
 
 end
 
-figure();
+h = figure();
 semilogy(1:N, E, "-sr");
 title('Error of \pi with Archimedes method, unstable implementation');
 ylabel('|\pi - \pi_{archimedes}|');
 xlabel("n - Number of Iterations -");
+set(h,'PaperSize',[5 5]);
+print(h,'error_plot', '-dpdf', '-r300', '-bestfit');
 
-figure();
+h2 = figure();
 plot(1:N+1, Y, "-sg"); hold on
 plot(1:N+1, ones(N+1,1)*pi, "--b");
 title('Value of \pi with Archimedes method, unstable implementation');
 xlabel("n - Number of Iterations -");
 legend('\pi_{archimedes}', '\pi');
-tight();
+set(h2,'PaperSize',[5 5]);
+print(h2,'pi_plot', '-dpdf', '-r300', '-bestfit');
 
