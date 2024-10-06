@@ -1,4 +1,4 @@
-N = 40; # Number of iterations
+N = 100; # Number of iterations
 
 Y = zeros(N,1); # yk
 Y(1) = 2; # First term of series
@@ -15,6 +15,7 @@ for i = 1:N
 
 end
 
+save("pi_arch_error.mat","E")
 figure();
 semilogy(1:N, E, "-sr");
 title('Error of \pi with Archimedes method, stable implementation');
