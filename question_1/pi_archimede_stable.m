@@ -15,17 +15,19 @@ for i = 1:N
 
 end
 
-figure();
+h=figure();
 semilogy(1:N, E, "-sr");
 title('Error of \pi with Archimedes method, stable implementation');
 ylabel('|\pi - \pi_{archimedes}|');
 xlabel("n - Number of Iterations -");
+set(h,'PaperSize',[5 5]);
+print(h,'error_pi_stable', '-dpdf', '-r300', '-bestfit');
 
-figure();
+h2=figure();
 plot(1:N+1, Y, "-sg"); hold on
 plot(1:N+1, ones(N+1,1)*pi, "--b");
 title('Value of \pi with Archimedes method, stable implementation');
 xlabel("n - Number of Iterations -");
 legend('\pi_{archimedes}', '\pi');
-tight();
-
+set(h2,'PaperSize',[5 5]);
+print(h2,'error_stable_plot', '-dpdf', '-r300', '-bestfit');
