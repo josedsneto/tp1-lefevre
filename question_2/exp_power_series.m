@@ -10,16 +10,16 @@ E = zeros(N,1);
 
 for i = 1:N
   Y(i + 1) = Y(i) + x^i/factorial(i);
-  E(i + 1) = abs(Y(i + 1) - exp(x));
 end
 
 # Calculate theoretical bounding error
 be = abs(x)^N / factorial(N);
 
 if (x0 < 0)
-  y = 1/Y(N);
+  Z = 1./Y;
+  E = abs(Z - exp(x0));
 else
-  y = Y(N);
+  Z = Y;
 end
 
 figure();

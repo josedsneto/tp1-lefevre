@@ -1,6 +1,6 @@
 #Compare the convergence between the values of pi obtained by the agm method and arch. method
 
-N = 1e5;
+N = 1e3;
 
 a = N;
 b = 4;

@@ -15,8 +15,9 @@ end
 h = figure();
 semilogy(1:N, E, "-sr");
 title('Error of \pi with Archimedes method, unstable implementation');
-ylabel('|\pi - \pi_{archimedes}|');
+#ylabel('|\pi - \pi_{archimedes}|');
 xlabel("n - Number of Iterations -");
+legend('|\pi - \pi_{archimedes}|');
 set(h,'PaperSize',[5 5]);
 print(h,'error_plot', '-dpdf', '-r300', '-bestfit');
 

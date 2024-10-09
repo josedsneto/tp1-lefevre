@@ -28,12 +28,12 @@ pi_converging = 2*(log(N)*A)/N;
 E = abs(pi_converging -pi);
 
 figure();
-semilogy(1:Nit, E, "-sr");
+semilogy(1:Nit, E, "-sr"); hold on
 #semilogy(1:Nit, ones(Nit)*e, "--k");
 title('Error of \pi with means method');
-ylabel('|\pi - \pi_{agm}|');
+#ylabel('|\pi - \pi_{agm}|');
 xlabel("n - Number of Iterations for mean convergence -");
-#legend('|\pi - \pi_{agm}|', 'Error threshold for agm');
+legend('|\pi - \pi_{agm}|', 'Error threshold for agm');
 
 figure();
 plot(1:Nit, pi_converging, "-sg"); hold on

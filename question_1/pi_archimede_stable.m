@@ -20,8 +20,9 @@ save("pi_arch_error.mat","E");
 h=figure();
 semilogy(1:N, E, "-sr");
 title('Error of \pi with Archimedes method, stable implementation');
-ylabel('|\pi - \pi_{archimedes}|');
+#ylabel('|\pi - \pi_{archimedes}|');
 xlabel("n - Number of Iterations -");
+legend('|\pi - \pi_{archimedes}|');s
 set(h,'PaperSize',[5 5]);
 print(h,'error_pi_stable', '-dpdf', '-r300', '-bestfit');
 
