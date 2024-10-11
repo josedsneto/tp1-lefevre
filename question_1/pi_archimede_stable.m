@@ -15,22 +15,25 @@ for i = 1:N
 
 end
 
-save("pi_arch_error.mat","E");
+save("pi_arch_error.mat","E", "Y");
 
 h=figure();
 semilogy(1:N, E, "-sr");
-title('Error of \pi with Archimedes method, stable implementation');
+grid();
+%title('Error of \pi with Archimedes method, stable implementation');
 #ylabel('|\pi - \pi_{archimedes}|');
-xlabel("n - Number of Iterations -");
-legend('|\pi - \pi_{archimedes}|');s
+xlabel("Number of Iterations");
+legend('|\pi - \pi_{archimedes}|');
 set(h,'PaperSize',[5 5]);
-print(h,'error_pi_stable', '-dpdf', '-r300', '-bestfit');
+%print(h,'error_pi_stable', '-dpdf', '-r300', '-bestfit');
+print(h,'error_pi_stable', '-dpng', '-r300');
 
 h2=figure();
 plot(1:N+1, Y, "-sg"); hold on
 plot(1:N+1, ones(N+1,1)*pi, "--b");
-title('Value of \pi with Archimedes method, stable implementation');
-xlabel("n - Number of Iterations -");
+grid();
+%title('Value of \pi with Archimedes method, stable implementation');
+xlabel("Number of Iterations");
 legend('\pi_{archimedes}', '\pi');
 set(h2,'PaperSize',[5 5]);
-print(h2,'error_stable_plot', '-dpdf', '-r300', '-bestfit');
+print(h2,'error_stable_plot', '-dpng', '-r300');

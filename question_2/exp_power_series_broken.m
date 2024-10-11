@@ -1,5 +1,5 @@
 
-x = -20;
+x = 20;
 
 N = ceil(2*abs(x));
 
@@ -12,23 +12,33 @@ for i = 1:N
   E(i + 1) = abs(Y(i + 1) - exp(x))
 end
 
-# Calculate theoretical bounding error
+% Calculate theoretical bounding error
 be = abs(x)^N / factorial(N);
 
-figure();
+h = figure();
 semilogy(1:N + 1, E, "-sr"); hold on
 semilogy(1:N + 1, ones(N+ 1)*be, "--k");
-title('Error of exp(10) through power series');
-#ylabel('|exp(10) - exp(10)_{power series}|');
-xlabel("n - Number of Iterations-");
-legend('|exp(10)| - exp(10)_{power series}', '|x|^n/n!');
+grid();
+%title('Error of exp(10) through power series');
+%ylabel('|exp(10) - exp(10)_{power series}|');
+xlabel("Number of Iterations");
+legend('|exp(20) - exp(20)_{power series}|', 'Bounding Error |x|^n/n!');
 
-figure();
+set(h,'PaperSize',[5 5]);
+%print(h2,'pi_plot', '-dpng', '-r300', '-bestfit');
+print(h,'exp_err_plot20', '-dpng', '-r300');
+
+h2 = figure();
 plot(1:N + 1, Y, "-sg"); hold on
 plot(1:N + 1, ones(N+1)*exp(x), "--b");
-title('Value of exp(10) through power series');
-xlabel("n - Number of Iterations -");
-legend('exp(10)_{power series}', 'exp(10)');
-tight();
+grid();
+#title('Value of exp(10) through power series');
+xlabel("Number of Iterations");
+legend('exp(20)_{power series}', 'exp(20)');
+%tight();
+
+set(h2,'PaperSize',[5 5]);
+%print(h2,'pi_plot', '-dpng', '-r300', '-bestfit');
+print(h2,'exp_plot20', '-dpng', '-r300');
 
 

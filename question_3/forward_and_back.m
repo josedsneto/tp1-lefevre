@@ -20,12 +20,14 @@ else
     end
   end
 
-  figure();
+  h2 = figure();
   plot(I, "-sg"); hold on
   title('Value of I_n through combined method');
+  grid();
   xlabel("n");
   legend('I_n');
-  tight();
+  set(h2,'PaperSize',[5 5]);
+  print(h2,'forward_and_backward_plot', '-dpng', '-r300');
 end
 
 
