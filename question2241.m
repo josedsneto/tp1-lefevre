@@ -7,30 +7,28 @@ X(1) = 1;
 
 
 % Find the fixed point with Newton-Raphson's method
-s = nrSolve( @(x) (10*cos(x) - x), 0, 20, 0.001);
+s = nrSolve( @(x) (x^k - alpha), 1, 20, 0.0001);
 
 for i=1:N-1
     X(i+1) = X(i) - (X(i) - alpha*X(i)/X(i)^k)/3;
 end
 
-x_converged = X(end);
-
-ek = X - x_converged;
-log_ek = -log10(abs(ek(1:end-1)/x_converged));
+e = abs(X - s);
+Cn = -log10(e/s);
 
 figure();
 plot(X(:), "-sr"); hold on
-yline(x_converged, 'b');
-xlabel('k');
-ylabel('X_k');
-legend('x_k',['x_s = ',num2str(x_converged)]);
+yline(s, 'b');
+xlabel('n');
+ylabel('x_n');
+legend('x_k',['x_s = ',num2str(s)]);
 set(gcf,'PaperSize',[10 10]);
 print(gcf,'convergence_racine_3_5', '-dpdf', '-r300', '-bestfit');
 
 figure();
-plot(log_ek, "-sr"); hold on
+plot(Cn, "-sr"); hold on
 xlabel('k');
 ylabel('X_k');
-%legend('x_k',['x_s = ',num2str(x_converged)]);
+%legend('x_k',['x_s = ',num2str(s)]);
 set(gcf,'PaperSize',[10 10]);
 print(gcf,'chiffres_significatifs_racine_3_5', '-dpdf', '-r300', '-bestfit');
