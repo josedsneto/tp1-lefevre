@@ -27,7 +27,7 @@ xlabel('n');
 ylabel('x_n = cos(x_{n-1})');
 legend('x_n = cos(x_{n-1})');
 set(gcf,'PaperSize',[10 10]);
-print(gcf,'cos_aitken10', '-dpdf', '-r300', '-bestfit');
+print(gcf,'cos_aitken_stef10', '-dpdf', '-r300', '-bestfit');
 
 % Plot of Cn, the number of significative digits
 figure();
@@ -35,7 +35,7 @@ plot(Cn, "-sk"); hold on
 xlabel('n');
 legend('Cn');
 set(gcf,'PaperSize',[10 10]);
-print(gcf,'cn_aitken10', '-dpdf', '-r300', '-bestfit');
+print(gcf,'cn_aitken_stef10', '-dpdf', '-r300', '-bestfit');
 
 figure();
 plot(log_e(2:N-1), log_e(1:N-2), "-sr"); hold on
@@ -43,5 +43,5 @@ xlabel('log_{10}e_{k+1}');
 ylabel('log_{10}e_{k}');
 %legend('ek = cos(x0_n) - s');
 set(gcf,'PaperSize',[10 10]);
-print(gcf,'log_aitken10', '-dpdf', '-r300', '-bestfit');
+print(gcf,'log_aitken_stef10', '-dpdf', '-r300', '-bestfit');
  

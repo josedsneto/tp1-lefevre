@@ -2,7 +2,7 @@
 N = 50;
 X = zeros(2,N);
 
-X(:,1) = [5,5];
+X(:,1) = [-5,-5];
 
 for i = 1:N
     xk = X(1,i);
@@ -26,7 +26,7 @@ plot(X(2,:),'-sk');
 yline(y_converged, 'b');
 xlabel('k');
 ylabel('X_k');
-title('First root');
+%title('First root');
 legend('x_k',['s_x = ',num2str(x_converged)],'y_k',['s_y = ',num2str(y_converged)]);
 set(gcf,'PaperSize',[10 10]);
-print(gcf,'convergence_FX_1st_root', '-dpdf', '-r300', '-bestfit');
+print(gcf,'convergence_FX_2nd_root', '-dpdf', '-r300', '-bestfit');
